@@ -137,11 +137,12 @@ internal class Program
         Console.WriteLine(MenuConstants.Title);
         Console.WriteLine();
 
-        foreach (MenuItem item in MenuConstants.Items.OrderBy(x => int.Parse(x.Key)))
+        foreach (MenuItem item in MenuConstants.Items
+             .OrderBy(x => x.Key == "0" ? 999 : int.Parse(x.Key))) // Sortera så att "0" (Exit) kommer sist
         {
             Console.WriteLine(item);
         }
-
+        
         Console.WriteLine();
     }
 
