@@ -156,18 +156,29 @@ internal class Program
         // Exempel på hur du lägger till en produkt i dictionaryn:
         // products["KAFFE"] = new Product("KAFFE", "Kaffe", 15.00m, 50);
         //
-        // TODO:
+        // TODO completed: Lagt till 12 produkter.
         // Lägg till minst 10 produkter i products-dictionaryn.
         // Välj egna koder, namn, priser och lagersaldon.
-
-
+        
+        products["YOGHURT"] = new Product("YOGHURT", "Yoghurt", 8.00m, 70);
+        products["MJÖLK"] = new Product("MJÖLK", "Mjölk", 10.00m, 60);
+        products["BRÖD"] = new Product("BRÖD", "Bröd", 20.00m, 25);
+        products["OST"] = new Product("OST", "Ost", 30.00m, 15);
+        products["ÄGG"] = new Product("ÄGG", "Ägg", 5.00m, 100);
+        products["SMÖR"] = new Product("SMÖR", "Smör", 22.00m, 35);
+        products["TE"] = new Product("TE", "Te", 12.00m, 30);
+        products["BUL"] = new Product("BUL", "Buljong", 18.00m, 20);
+        products["MCK"] = new Product("MCK", "Macka", 35.00m, 10);
+        products["CHOKLAD"] = new Product("CHOKLAD", "Choklad", 25.00m, 40);
+        products["PASTA"] = new Product("PASTA", "Pasta", 15.00m, 50);
+        products["RIS"] = new Product("RIS", "Ris", 12.00m, 60);1
     }
 
     static void PrintProducts()
     {
         Console.WriteLine("=== Produkter ===");
 
-        // TODO:
+        // TODO:1
         // Loopa igenom dictionaryn products.
         // Skriv ut varje produkt.
         // Räkna även ut totalt lagervärde.
@@ -177,7 +188,18 @@ internal class Program
 
         // Fråga:
         // Varför passar Dictionary bra för ett produktregister?
-        Console.WriteLine("Svar: TODO - skriv ditt svar här");
+        
+        decimal stockValue = 0;
+
+        foreach (KeyValuePair<string, Product> product in products)
+        {
+            stockValue += product.Value.Price * product.Value.Stock;
+            Console.WriteLine(product.Value.Name);
+        }
+        Console.WriteLine();
+        Console.WriteLine("------------------------------");   
+        Console.WriteLine("Totalt lagervärde: " + stockValue.ToString("C")); // C <= valutaformat
+        Console.WriteLine();
     }
 
     static void FindProduct()
