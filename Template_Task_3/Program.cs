@@ -137,7 +137,7 @@ internal class Program
         Console.WriteLine(MenuConstants.Title);
         Console.WriteLine();
 
-        foreach (MenuItem item in MenuConstants.Items)
+        foreach (MenuItem item in MenuConstants.Items.OrderBy(x => int.Parse(x.Key)))
         {
             Console.WriteLine(item);
         }
@@ -171,7 +171,7 @@ internal class Program
         products["MCK"] = new Product("MCK", "Macka", 35.00m, 10);
         products["CHOKLAD"] = new Product("CHOKLAD", "Choklad", 25.00m, 40);
         products["PASTA"] = new Product("PASTA", "Pasta", 15.00m, 50);
-        products["RIS"] = new Product("RIS", "Ris", 12.00m, 60);1
+        products["RIS"] = new Product("RIS", "Ris", 12.00m, 60);
     }
 
     static void PrintProducts()
