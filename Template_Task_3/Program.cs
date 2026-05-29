@@ -213,7 +213,7 @@ internal class Program
         Console.Write("Ange produktkod: ");
         string code = Console.ReadLine()?.ToUpper() ?? "";        
         
-        if(code == "")
+        if (string.IsNullOrWhiteSpace(code))
         {
             Console.WriteLine("Du måste ange en produktkod.");
             return;
