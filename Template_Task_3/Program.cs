@@ -257,13 +257,45 @@ internal class Program
         
         Console.WriteLine("TODO: Implementera AddProduct.");
         Console.WriteLine("Lägg till en ny produkt i sortimentet.");
-        string productCode = Console.ReadLine();
-        string productName = Console.ReadLine();
-        string productPrice = Console.ReadLine();
-        string productStock = Console.ReadLine();
-        Product newProduct = new Product(productCode, productName, decimal.Parse(productPrice), int.Parse(productStock));
-        products.Add(productCode, newProduct);
-        logMessages.Add($"Produkt {productCode} lades till i sortimentet.");
+        string productCode = Console.ReadLine()?.ToUpper() ?? "";
+
+        if (string.IsNullOrWhiteSpace(productCode))
+        {
+            Console.WriteLine("Du måste ange en produktkod.");
+            return;
+        }
+        if (products.ContainsKey(productCode))
+        {
+            Console.WriteLine($"Produkten med kod {productCode} finns redan.");
+            return;
+        }
+        if (products.ContainsKey(productCode))
+        {
+            Console.WriteLine($"Produkten med kod {productCode} finns redan.");
+            return;
+        }
+
+            Console.Write("Namn: ");
+            string productName = Console.ReadLine() ?? "";
+
+            Console.Write("Pris: ");
+        if (!decimal.TryParse(Console.ReadLine(), out decimal price))
+        {
+            Console.WriteLine("Ogiltigt pris.");
+            return;
+        }
+
+            Console.Write("Lagersaldo: ");
+        if (!int.TryParse(Console.ReadLine(), out int stock))
+        {
+            Console.WriteLine("Ogiltigt lagersaldo.");
+            return;
+        }
+
+            Product newProduct = new Product(productCode, productName, price, stock);
+            products.Add(productCode, newProduct);
+            logMessages.Add($"Produkt {productCode} lades till i sortimentet.");
+            Console.WriteLine($"Produkt {productCode} lades till.");
 
         // Fråga:
         // Vad är nyckeln och vad är värdet i products?
