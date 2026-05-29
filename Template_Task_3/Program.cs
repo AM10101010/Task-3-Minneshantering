@@ -211,32 +211,34 @@ internal class Program
     static void FindProduct()
     {
         Console.Write("Ange produktkod: ");
+        string code = Console.ReadLine()?.ToUpper() ?? "";        
         
-        Console.WriteLine("Vänligen ange produktkoden i stora bokstäver. Exempel: KAF, TE, BUL, MCK");
-        string code = Console.ReadLine().ToUpper();        
-
-        // TODO:
+        if(code == "")
+        {
+            Console.WriteLine("Du måste ange en produktkod.");
+            return;
+        }
+        
+        // TODO:                                                
         // Hämta produktens code
         // Gör koden till stora bokstäver med .ToUpper()
         // Slå upp produkten med TryGetValue
         // Om produkten finns, skriv ut den.
         // Om produkten saknas, skriv ett felmeddelande.
 
-        Console.WriteLine("TODO: Implementera FindProduct.");
+        // Fråga:
+        // Varför är TryGetValue bättre än att skriva products[code] direkt?
+        /* Svar: Enklare och tydligare: en nyckel som saknas hanteras som ett
+           vanligt val istället för att kasta fel */
         
-        if (products.TryGetValue(code, out Product product))
+        if (products.TryGetValue(code, out Product? productFound))
         {
-            Console.WriteLine(product);
+            Console.WriteLine(productFound);
         }
         else
         {
-            Console.WriteLine("Produkten finns inte.");
+            Console.WriteLine($"Produkten med kod {code} hittades inte.");
         }
-
-
-        // Fråga:
-        // Varför är TryGetValue bättre än att skriva products[code] direkt?
-        Console.WriteLine("Svar: TODO - skriv ditt svar här");
     }
 
     static void AddProduct()

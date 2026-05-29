@@ -16,6 +16,7 @@ public class Product
     }
 
     public override string ToString()
+    
     {
         return $"{Code}: {Name}, {Price} kr, saldo: {Stock}";
     }
