@@ -243,8 +243,7 @@ internal class Program
 
     static void AddProduct()
     {
-        Console.WriteLine("TODO: Implementera AddProduct.");
-      
+       
         // TODO:
         // Läs in produktkod.
         // Gör produktkoden till stora bokstäver med .ToUpper().
@@ -255,9 +254,20 @@ internal class Program
         // Skapa ett Product-objekt.
         // Lägg till produkten i products-dictionaryn.
         // Lägg till ett loggmeddelande i logMessages.
+        
+        Console.WriteLine("TODO: Implementera AddProduct.");
+        Console.WriteLine("Lägg till en ny produkt i sortimentet.");
+        string productCode = Console.ReadLine();
+        string productName = Console.ReadLine();
+        string productPrice = Console.ReadLine();
+        string productStock = Console.ReadLine();
+        Product newProduct = new Product(productCode, productName, decimal.Parse(productPrice), int.Parse(productStock));
+        products.Add(productCode, newProduct);
+        logMessages.Add($"Produkt {productCode} lades till i sortimentet.");
 
         // Fråga:
         // Vad är nyckeln och vad är värdet i products?
+        // Svar: Produktkoden är nyckeln (key) och Price är värdet.
         Console.WriteLine("Svar: TODO - skriv ditt svar här");
     }
 
