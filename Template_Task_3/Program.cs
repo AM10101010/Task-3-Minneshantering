@@ -212,6 +212,8 @@ internal class Program
     {
         Console.Write("Ange produktkod: ");
         
+        Console.WriteLine("Vänligen ange produktkoden i stora bokstäver. Exempel: KAF, TE, BUL, MCK");
+        string code = Console.ReadLine().ToUpper();        
 
         // TODO:
         // Hämta produktens code
@@ -221,6 +223,16 @@ internal class Program
         // Om produkten saknas, skriv ett felmeddelande.
 
         Console.WriteLine("TODO: Implementera FindProduct.");
+        
+        if (products.TryGetValue(code, out Product product))
+        {
+            Console.WriteLine(product);
+        }
+        else
+        {
+            Console.WriteLine("Produkten finns inte.");
+        }
+
 
         // Fråga:
         // Varför är TryGetValue bättre än att skriva products[code] direkt?
