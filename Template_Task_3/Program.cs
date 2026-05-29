@@ -157,7 +157,7 @@ internal class Program
         // Exempel på hur du lägger till en produkt i dictionaryn:
         // products["KAFFE"] = new Product("KAFFE", "Kaffe", 15.00m, 50);
         //
-        // TODO completed: Lagt till 12 produkter.
+        // TODO [Completed]: Lagt till 12 produkter.
         // Lägg till minst 10 produkter i products-dictionaryn.
         // Välj egna koder, namn, priser och lagersaldon.
         
@@ -189,6 +189,11 @@ internal class Program
 
         // Fråga:
         // Varför passar Dictionary bra för ett produktregister?
+        
+        /* Svar: Nyckeln gör det snabbt att hitta rätt produkt och garanterar att varje artikel bara finns en gång.
+           När man försöker lägga till en nyckel som redan finns i
+           dictionaryn kastas följande exception:
+           ArgumentException: An item with the same key has already been added. */
         
         decimal stockValue = 0;
 
